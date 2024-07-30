@@ -36,7 +36,7 @@ The resources can be created using `oc` or `kubectl`:
 oc apply -k .
 ```
 
-## Verfication
+## Verification
 
 ```
 # oc get secret/pushed-cred -n eso-creds-testing-target -oyaml
