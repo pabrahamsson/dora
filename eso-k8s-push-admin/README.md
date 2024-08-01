@@ -40,7 +40,7 @@ clusterrolebinding.rbac.authorization.k8s.io/my-store configured (dry run)
 
 Here we use a `ClusterRole` and `ClusterRoleBinding` to give the `my-store` service account the necessary privileges to create secrets in any namespace.
 
-> **Note**
+> ❗**NOTE**❗\
 > The `SecretStore` is limited to a single namespace, defined by `.spec.provider.kubernetes.remoteNamespace`. If this is omitted, the `default` namespace will be used.
 
 ## Creating the resources
