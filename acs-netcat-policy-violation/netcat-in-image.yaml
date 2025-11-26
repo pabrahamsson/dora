@@ -1,0 +1,43 @@
+apiVersion: config.stackrox.io/v1alpha1
+kind: SecurityPolicy
+metadata:
+  name: netcat-in-image
+spec:
+  policyName: NetCat in Image
+  description: Alert on deployments with netcat present
+  rationale: Leaving download tools like netcat in an image makes it easier for attackers to use compromised containers.
+  remediation: Use your package manager's "remove", "purge" or "erase" command to remove netcat from the image build for production containers. Ensure that any configuration files are also removed.
+  categories:
+    - Security Best Practices
+  lifecycleStages:
+    - BUILD
+    - DEPLOY
+  eventSource: NOT_APPLICABLE
+  exclusions:
+    - deployment:
+        name: collector
+        scope:
+          namespace: stackrox
+    - deployment:
+        name: central
+        scope:
+          namespace: stackrox
+    - deployment:
+        name: sensor
+        scope:
+          namespace: stackrox
+    - deployment:
+        name: admission-control
+        scope:
+          namespace: stackrox
+  severity: LOW_SEVERITY
+  policySections:
+    - policyGroups:
+        - fieldName: Image Component
+          booleanOperator: OR
+          values:
+            - value: nc=
+            - value: ncat=
+  criteriaLocked: false
+  mitreVectorsLocked: false
+  isDefault: false

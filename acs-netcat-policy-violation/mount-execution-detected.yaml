@@ -1,0 +1,31 @@
+apiVersion: config.stackrox.io/v1alpha1
+kind: SecurityPolicy
+metadata:
+  name: mount-execution-detected
+spec:
+  policyName: Mount execution detected
+  categories:
+    - Security Best Practices
+  lifecycleStages:
+    - RUNTIME
+  eventSource: DEPLOYMENT_EVENT
+  scope:
+    - cluster: <REPLACE ME>
+      namespace: acs-policy-test
+  severity: MEDIUM_SEVERITY
+  enforcementActions:
+    - FAIL_KUBE_REQUEST_ENFORCEMENT
+    - KILL_POD_ENFORCEMENT
+  policySections:
+    - sectionName: Rule 1
+      policyGroups:
+        - fieldName: Process Name
+          booleanOperator: OR
+          values:
+            - value: mount
+  mitreAttackVectors:
+    - tactic: TA0003
+      techniques: []
+  criteriaLocked: false
+  mitreVectorsLocked: false
+  isDefault: false

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: acs-netcat
+  name: acs-netcat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: acs-netcat
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: acs-netcat
+    spec:
+      containers:
+        - image: netcat
+          name: netcat
+          command:
+            - sleep
+            - infinity
+          resources:
+            limits:
+              cpu: 10m
+              memory: 128Mi
+            requests:
+              cpu: 10m
+              memory: 128Mi

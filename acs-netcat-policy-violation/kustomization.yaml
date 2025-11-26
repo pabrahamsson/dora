@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - namespace.yaml
+  - deployment.yaml
+namespace: acs-policy-test
+images:
+  - name: netcat
+    newName: quay.io/pabrahamsson/netcat
+    newTag: 7.92-2
