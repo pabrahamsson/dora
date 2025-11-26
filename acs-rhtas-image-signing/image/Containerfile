@@ -1,0 +1,3 @@
+FROM registry.access.redhat.com/ubi10/httpd-24:10.1
+
+LABEL rhtas.redhat.com/signed=unsigned
