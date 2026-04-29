@@ -1,3 +1,3 @@
-FROM registry.access.redhat.com/ubi10/httpd-24:10.1-1776905951@sha256:66d486b9b00d08cffa93c168d1edc4c056a3eafd48cb36b02d6cb631f7356e8b
+FROM registry.access.redhat.com/ubi10/httpd-24:10.1-1777437352@sha256:b8444da9b332c98458de5b6ffb5856b56ab4fba939142fd67e668a6110c4d204
 
 LABEL rhtas.redhat.com/signed=unsigned
