@@ -1,3 +1,3 @@
-FROM quay.io/hummingbird/httpd:2.4@sha256:982f05e8bfd6487de20ac6b8ad1c366036ca3c89c755c430222bb15974f60b63
+FROM quay.io/hummingbird/httpd:2.4@sha256:e80f1c9b5523fbb99c5f1a9a2af2b8ff6357604c73a95bed85b33a323cf99185
 
 LABEL rhtas.redhat.com/signed=unsigned
